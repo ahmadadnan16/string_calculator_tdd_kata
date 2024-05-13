@@ -16,9 +16,13 @@ RSpec.describe StringCalculator, type: :model do
       result = StringCalculator.add("1,5")
       expect(result).to eq(6)
     end
-    
+
     it "returns the sum with new lines between numbers" do
       expect(StringCalculator.add("1\n2,3")).to eq(6)
+    end
+
+    it "returns the sum with a different delimiter" do
+      expect(StringCalculator.add("//;\n1;2")).to eq(3)
     end
   end
 end
